@@ -5,6 +5,9 @@ import streamlit as st
 from babel.numbers import format_currency
 sns.set(style='dark')
 
+all_df = pd.read_csv("https://github.com/siren-song-of-war/Submission/blob/main/Dashboard/all_data.csv")
+all_df.dropna(axis=0, inplace=True)
+
 def create_daily_orders_df(df):
     daily_orders_df = all_df.resample(rule='D', on='order_approved_at').agg({
         "order_id": "nunique",
@@ -50,9 +53,6 @@ def create_rfm_df(df):
     
     return rfm_df
 
-all_df = pd.read_csv("https://github.com/siren-song-of-war/Submission/blob/main/Dashboard/all_data.csv")
-
-all_df.interpolate(method='linear', limit_direction='forward', inplace=True)
 datetime_columns = ["order_approved_at", "order_delivered_customer_date"]
 all_df.sort_values(by="order_approved_at", inplace=True)
 all_df.reset_index(inplace=True)
