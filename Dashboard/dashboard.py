@@ -5,8 +5,7 @@ import streamlit as st
 from babel.numbers import format_currency
 sns.set(style='dark')
 
-all_df = pd.read_csv("https://github.com/siren-song-of-war/Submission/blob/main/Dashboard/all_data.csv")
-
+all_df = pd.read_csv("https://raw.githubusercontent.com/siren-song-of-war/Submission/main/Dashboard/all_data.csv")
 def create_daily_orders_df(df):
     daily_orders_df = all_df.resample(rule='D', on='order_approved_at').agg({
         "order_id": "nunique",
@@ -81,14 +80,14 @@ monthly_orders_df = create_monthly_orders_df(main_df)
 sum_order_items_df = create_sum_order_items_df(main_df)
 rfm_df = create_rfm_df(main_df)
 
-st.header('Dicoding Collection Dashboard :sparkles:')
+st.header('Brazilian E-Commerce Public Dataset Dicoding Submission :sparkles:')
 col1, col2 = st.columns(2)
 with col1:
     total_orders = daily_orders_df.order_count.sum()
     st.metric("Total orders", value=total_orders)
  
 with col2:
-    total_revenue = format_currency(daily_orders_df.revenue.sum(), "AUD", locale='es_CO') 
+    total_revenue = format_currency(daily_orders_df.revenue.sum(), "BC", locale='es_CO') 
     st.metric("Total Revenue", value=total_revenue)
  
 fig, ax = plt.subplots(figsize=(16, 8))
@@ -159,7 +158,7 @@ with col2:
     st.metric("Average Frequency", value=avg_frequency)
  
 with col3:
-    avg_frequency = format_currency(rfm_df.monetary.mean(), "AUD", locale='es_CO') 
+    avg_frequency = format_currency(rfm_df.monetary.mean(), "BC", locale='es_CO') 
     st.metric("Average Monetary", value=avg_frequency)
  
 fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(35, 15))
