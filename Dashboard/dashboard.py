@@ -80,7 +80,7 @@ monthly_orders_df = create_monthly_orders_df(main_df)
 sum_order_items_df = create_sum_order_items_df(main_df)
 rfm_df = create_rfm_df(main_df)
 
-st.header('Dicoding Collection Dashboard :sparkles:')
+st.header('Brazilian E-Commerce Public Dataset Dicoding Submission :sparkles:')
 col1, col2 = st.columns(2)
 with col1:
     total_orders = daily_orders_df.order_count.sum()
