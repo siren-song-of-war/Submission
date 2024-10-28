@@ -50,7 +50,7 @@ def create_rfm_df(df):
     
     return rfm_df
 
-all_df = pd.read_csv("all_data.csv")
+all_df = pd.read_csv("https://github.com/siren-song-of-war/Submission/blob/main/Dashboard/all_data.csv")
 
 all_df.interpolate(method='linear', limit_direction='forward', inplace=True)
 datetime_columns = ["order_approved_at", "order_delivered_customer_date"]
