@@ -52,7 +52,7 @@ def create_rfm_df(df):
 
 all_df = pd.read_csv("all_data.csv")
 
-all_df.fillna(value=0, inplace=True)
+all_df.interpolate(method='linear', limit_direction='forward', inplace=True)
 datetime_columns = ["order_approved_at", "order_delivered_customer_date"]
 all_df.sort_values(by="order_approved_at", inplace=True)
 all_df.reset_index(inplace=True)
