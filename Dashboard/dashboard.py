@@ -5,8 +5,7 @@ import streamlit as st
 from babel.numbers import format_currency
 sns.set(style='dark')
 
-all_df = pd.read_csv("https://github.com/siren-song-of-war/Submission/blob/main/Dashboard/all_data.csv",on_bad_lines='skip')
-
+all_df = pd.read_csv("https://raw.githubusercontent.com/siren-song-of-war/Submission/main/Dashboard/all_data.csv")
 def create_daily_orders_df(df):
     daily_orders_df = all_df.resample(rule='D', on='order_approved_at').agg({
         "order_id": "nunique",
