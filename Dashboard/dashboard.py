@@ -63,7 +63,7 @@ max_date = all_df["order_approved_at"].max()
  
 with st.sidebar:
     # Menambahkan logo perusahaan
-    st.image("https://raw.github.com/siren-song-of-war/Submission/blob/main/c8da0175e9dba0109e4baaca8753b277.png")
+    st.image("https://github.com/siren-song-of-war/Submission/blob/main/c8da0175e9dba0109e4baaca8753b277.png?raw=true")
     
     # Mengambil start_date & end_date dari date_input
     start_date, end_date = st.date_input(
