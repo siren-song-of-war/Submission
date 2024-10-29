@@ -103,29 +103,12 @@ ax.tick_params(axis='x', labelsize=15)
  
 st.pyplot(fig)
 
-st.subheader('Total Order per Month (2016-2018)')
+st.subheader('Number of order per Month (2016-2018)')
 
 fig, ax = plt.subplots(figsize=(20, 8))
 ax.plot(
     monthly_orders_df["order_approved_at"],
     monthly_orders_df["order_count"],
-    marker='o',
-    linewidth=2,
-    color="#72BCD4"
-)
-ax.set_ylabel(None)
-ax.set_xlabel(None)
-ax.tick_params(axis='y', labelsize=20)
-ax.tick_params(axis='x', labelsize=10)
-
-st.pyplot(fig)
-
-st.subheader('Total Revenue per Month (2016-2018)')
-
-fig, ax = plt.subplots(figsize=(20, 8))
-ax.plot(
-    monthly_orders_df["order_approved_at"],
-    monthly_orders_df["revenue"],
     marker='o',
     linewidth=2,
     color="#72BCD4"
