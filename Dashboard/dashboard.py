@@ -67,17 +67,17 @@ with st.sidebar:
     
     # Mengambil start_date & end_date dari date_input
     try:
-        start_date, end_date = st.date_input(
+            start_date, end_date = st.date_input(
             label='Rentang Waktu',min_value=min_date,
             max_value=max_date,
             value=[min_date, max_date]
-    )
+        )
     except ValueError:
-                start_date, end_date = st.date_input(
+            start_date, end_date = st.date_input(
             label='Rentang Waktu',min_value=min_date,
             max_value=min_date,
             value=[min_date, min_date]
-    )
+        )
     
 main_df = all_df[(all_df["order_approved_at"] >= str(start_date)) & 
     (all_df["order_approved_at"] <= str(end_date))]
