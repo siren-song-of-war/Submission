@@ -75,8 +75,8 @@ with st.sidebar:
     except ValueError:
                 start_date, end_date = st.date_input(
             label='Rentang Waktu',min_value=min_date,
-            max_value=max_date,
-            value=[min_date, max_date]
+            max_value=min_date,
+            value=[min_date, min_date]
     )
     
 main_df = all_df[(all_df["order_approved_at"] >= str(start_date)) & 
