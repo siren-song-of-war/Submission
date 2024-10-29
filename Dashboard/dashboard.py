@@ -66,10 +66,10 @@ with st.sidebar:
     st.image("https://github.com/siren-song-of-war/Submission/blob/main/c8da0175e9dba0109e4baaca8753b277.png?raw=true")
     
     # Mengambil start_date & end_date dari date_input
-        start_date, end_date = st.date_input(
-            label='Rentang Waktu',min_value=min_date,
-            max_value=max_date,
-            value=[min_date, max_date]
+    start_date, end_date = st.date_input(
+        label='Rentang Waktu',min_value=min_date,
+        max_value=max_date,
+        value=[min_date, max_date]
     )
         
 main_df = all_df[(all_df["order_approved_at"] >= str(start_date)) & 
