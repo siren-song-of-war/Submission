@@ -73,9 +73,14 @@ with st.sidebar:
             value=[min_date, max_date]
     )
     except ValueError:
-
-        main_df = all_df[(all_df["order_approved_at"] >= str(start_date)) & 
-                (all_df["order_approved_at"] <= str(end_date))]
+                start_date, end_date = st.date_input(
+            label='Rentang Waktu',min_value=min_date,
+            max_value=max_date,
+            value=[min_date, max_date]
+    )
+    
+main_df = all_df[(all_df["order_approved_at"] >= str(start_date)) & 
+    (all_df["order_approved_at"] <= str(end_date))]
 
 daily_orders_df = create_daily_orders_df(main_df)
 monthly_orders_df = create_monthly_orders_df(main_df)
